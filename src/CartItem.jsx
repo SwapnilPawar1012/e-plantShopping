@@ -41,9 +41,6 @@ const CartItem = ({ onContinueShopping }) => {
     alert("Functionality to be added for future reference");
   };
 
-  // Calculate total cost based on quantity for an item
-  // const calculateTotalCost = (item) => {};
-
   return (
     <div className="cart-container">
       <h2 style={{ color: "black" }}>

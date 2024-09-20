@@ -75,7 +75,6 @@ body {
     border-radius: 5px;
     text-align: center;
     position: relative;
-
     gap: 20px;
 }
 
@@ -182,7 +181,6 @@ body {
     margin-left: 27px;
     position: absolute;
     font-size: 29px;
-
 }
 
 .plantname_heading {

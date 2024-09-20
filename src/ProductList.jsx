@@ -10,7 +10,6 @@ function ProductList() {
   const [addedToCart, setAddedToCart] = useState({});
   const dispatch = useDispatch();
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  console.log(totalQuantity);
 
   const plantsArray = [
     {
@@ -296,6 +295,13 @@ function ProductList() {
     }));
   };
 
+  const handleRemoveFromCart = (productName) => {
+    setAddedToCart((prevState) => ({
+      ...prevState,
+      [productName]: false,
+    }));
+  };
+
   return (
     <div>
       <div className="navbar" style={styleObj}>
@@ -368,7 +374,7 @@ function ProductList() {
                     />
                     <div className="product-price">${plant.cost}</div>
                     <div className="product">{plant.description}</div>
-                    {addedToCart[plant.name] ? (
+                    {addedToCart[plant.name] && addedToCart[plant.quntity] ? (
                       <button className="product-button added-to-cart" disabled>
                         Added to Cart
                       </button>
@@ -387,7 +393,10 @@ function ProductList() {
           ))}
         </div>
       ) : (
-        <CartItem onContinueShopping={handleContinueShopping} />
+        <CartItem
+          onContinueShopping={handleContinueShopping}
+          onRemoveFromCart={handleRemoveFromCart} // Pass the callback here
+        />
       )}
     </div>
   );
